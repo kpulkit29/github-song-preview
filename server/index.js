@@ -51,6 +51,6 @@ app.get("/preview", async function(req, res) {
   res.end(image, "base64");
 });
 
-app.listen(3000, () => {
-  console.log('listening on *:3000');
+app.listen(80, () => {
+  console.log('listening on *:80');
 });
