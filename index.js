@@ -9,6 +9,6 @@ app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, "client", "build")));
 app.use("/", songsApi);
 
-app.listen(80, () => {
+app.listen(process.env.PORT || 80, () => {
   console.log('listening on *:80');
 });
