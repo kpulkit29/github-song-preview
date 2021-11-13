@@ -6,7 +6,7 @@ const songsApi = require("./api/routes");
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-app.use(express.static(path.join(__dirname, "..", "build")));
+app.use(express.static(path.join(__dirname, "client", "build")));
 app.use("/", songsApi);
 
 app.listen(80, () => {

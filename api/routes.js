@@ -8,7 +8,7 @@ const ytObject = new ytAPI();
 
 const { massageSongData } = require("../utils");
 router.get("/", (req, res, next) => {
-    res.sendFile(path.join(__dirname, "..", "build", "index.html"));
+    res.sendFile(path.join(__dirname,"client", "build", "index.html"));
   });
   
   router.post("/getSongList", async (req, res) => {
