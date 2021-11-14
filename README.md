@@ -5,7 +5,7 @@ Like listening to music while you're coding?? If yes, then you landed in the rig
  - Open https://song-preview-readme.herokuapp.com/
  - Search for your song.
  - See a preview of your song card.
- - Copy the mardown code and paste it into your Github profile Readme.
+ - Copy the markdown code (GFM) and paste it into your Github profile Readme.
  
  **When the song card is clicked, it takes you to that song's video on youtube**
 
