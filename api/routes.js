@@ -5,20 +5,22 @@ const { html } = require("../html");
 const path = require("path");
 const ytAPI = require('youtube-music-api');
 const ytObject = new ytAPI();
+const atob = require("atob");
 
 const { massageSongData } = require("../utils");
 router.get("/", (req, res, next) => {
     res.sendFile(path.join(__dirname,"client", "build", "index.html"));
   });
   
-  router.post("/getSongList", async (req, res) => {
+  router.post("/getSongList", async (req, res, next) => {
       await ytObject.initalize();
       let songs = await ytObject.search(req.body.name, "song");
   
       try {
           res.send(massageSongData(songs));
       } catch (error) {
-        res.error("Something went wrong"); 
+        console.log(error);
+        next("Something went wrong"); 
       }
   });
   
@@ -32,10 +34,12 @@ router.get("/", (req, res, next) => {
   router.get("/preview", async function(req, res) {
     let  { sUrl, st, ed, txt, name, artist } = req.query;
   
-    sUrl = decodeURIComponent(sUrl);
-    st = decodeURIComponent(st);
-    ed = decodeURIComponent(ed);
-    txt = decodeURIComponent(txt);
+    sUrl = atob(sUrl);
+    st = atob(st);
+    ed = atob(ed);
+    txt = atob(txt);
+    name = atob(name);
+    artist = atob(artist);
     const image = await nodeHtmlToImage({
       html,
       content: {sUrl, st, ed, txt, name, artist}

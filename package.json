@@ -10,6 +10,7 @@
   "author": "kpulkit29",
   "license": "ISC",
   "dependencies": {
+    "atob": "^2.1.2",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "node-html-to-image": "^3.2.0",

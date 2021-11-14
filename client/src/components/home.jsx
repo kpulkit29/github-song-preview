@@ -40,7 +40,7 @@ export function Home(props) {
                   dataSource={songs}
                   loading={loaded}
                   renderItem={item =>
-                    console.log(item) || (
+                    (
                       <List.Item
                         actions={[<a onClick={() => {debugger;setOpen(true); setSelectedSong(item)}}>See Preview</a>]}
                       >

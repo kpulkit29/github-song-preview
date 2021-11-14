@@ -6,7 +6,6 @@ const { Text } = Typography;
 
 export function Preview(props) {
     const { previewSong, open, toggleOpen } = props;
-    console.log(props);
     const [form] = Form.useForm();
     const [gradStart, setGradStart] = useState('#e66465');
     const [gradEnd, setGradEnd] = useState('#9198e5');
@@ -14,12 +13,12 @@ export function Preview(props) {
 
     function getQuery() {
         let details = {
-            st: encodeURIComponent(gradStart),
-            ed: encodeURIComponent(gradEnd),
-            txt: encodeURIComponent(textColor),
-            name: previewSong.name,
-            sUrl: previewSong.image.url,
-            artist: previewSong.artist
+            st: window.btoa(gradStart),
+            ed: window.btoa(gradEnd),
+            txt: window.btoa(textColor),
+            name: window.btoa(previewSong.name),
+            sUrl: window.btoa(previewSong.image.url),
+            artist: window.btoa(previewSong.artist)
         }
         return `st=${details.st}&ed=${details.ed}&txt=${details.txt}&name=${details.name}&sUrl=${details.sUrl}&artist=${details.artist}`
     }   
@@ -62,7 +61,7 @@ export function Preview(props) {
         </div>
         <b>Copy and paste the below mentioned code in your Github profile README to see it in action</b>
         <br/>
-        <Text code>{`${"[![](https://loud-snake-75.loca.lt/preview?" + getQuery() + "](https://www.youtube.com/watch?v=H6uLAwHTgDo)"}`}</Text>
+        <Text code>{`${"[![](https://song-preview-readme.herokuapp.com/preview?" + getQuery() + ")](https://www.youtube.com/watch?v="+ previewSong.videoId +")"}`}</Text>
       </Drawer>
     )
 
