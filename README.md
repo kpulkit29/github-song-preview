@@ -1,6 +1,6 @@
 # Github-song-preview 🎵🎵
 
-Like listening to music while you're coding? You landed on the right place 😁😁. Github Profile Readme is a great way to give others a sneak peak into your coding world. Why not tell others what songs you're listening to while coding. With Github-song-preview you can do that in three simple steps. 
+Like listening to music while you're coding?? If yes, then you landed in the right place 😁😁. Github Profile Readme is a great way to give others a sneak peek into your coding world. Why not tell others what songs you're listening to while coding. With Github-song-preview you can do that in three simple steps. 
 
  - Open https://song-preview-readme.herokuapp.com/
  - Search for your song.
