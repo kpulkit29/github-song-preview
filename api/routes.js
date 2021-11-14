@@ -33,19 +33,23 @@ router.get("/", (req, res, next) => {
   
   router.get("/preview", async function(req, res) {
     let  { sUrl, st, ed, txt, name, artist } = req.query;
-  
-    sUrl = atob(sUrl);
-    st = atob(st);
-    ed = atob(ed);
-    txt = atob(txt);
-    name = atob(name);
-    artist = atob(artist);
-    const image = await nodeHtmlToImage({
-      html,
-      content: {sUrl, st, ed, txt, name, artist}
-    });
-    res.writeHead(200, { "Content-Type": "image/png" });
-    res.end(image, "base64");
+    try {
+      sUrl = atob(sUrl);
+      st = atob(st);
+      ed = atob(ed);
+      txt = atob(txt);
+      name = atob(name);
+      artist = atob(artist);
+      const image = await nodeHtmlToImage({
+        html,
+        content: {sUrl, st, ed, txt, name, artist}
+      });
+      res.writeHead(200, { "Content-Type": "image/png" });
+      res.end(image, "base64");
+    } catch(error) {
+      console.log(error);
+      res.send("0");
+    }
   });
 
 module.exports = router
