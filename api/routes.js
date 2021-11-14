@@ -42,7 +42,8 @@ router.get("/", (req, res, next) => {
       artist = atob(artist);
       const image = await nodeHtmlToImage({
         html,
-        content: {sUrl, st, ed, txt, name, artist}
+        content: {sUrl, st, ed, txt, name, artist},
+        puppeteerArgs: {args: ["--no-sandbox", "--disable-setuid-sandbox"]}
       });
       res.writeHead(200, { "Content-Type": "image/png" });
       res.end(image, "base64");
