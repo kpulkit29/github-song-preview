@@ -33,7 +33,7 @@ export function Home(props) {
 
     return (
         <div className="home">
-                <Search placeholder="input search text" onSearch={getSongs} style={{width: '100%', marginBottom: "50px"}} enterButton />
+                <Search placeholder="Type song name here" onSearch={getSongs} style={{width: '100%', marginBottom: "50px"}} enterButton />
                 <List
                   className="demo-loadmore-list"
                   itemLayout="horizontal"
