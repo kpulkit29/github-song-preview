@@ -28,7 +28,7 @@ export function Preview(props) {
         <Drawer
         title={`Preview song card`}
         placement="right"
-        width="800"
+        width={window.innerWidth<600 ? '400' : '800'}
         onClose={() =>toggleOpen(false)}
         visible={open}
       >
